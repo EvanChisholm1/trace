@@ -4,7 +4,8 @@ import sys
 import random
 import json
 import torch
-from model2 import SimpleConvNet
+# from model2 import SimpleConvNet
+from resnet import ResNet 
 from PIL import Image
 
 # file_list = [f for f in os.listdir('./data/raw_images') if f.endswith('.jpg')]
@@ -45,8 +46,9 @@ get_new_image(pointer)
 
 points = []
 
-m = SimpleConvNet()
+m = ResNet()
 m.load_state_dict(torch.load('best_model.pt'))
+m.eval()
 
 def predict(image_path):
     img = Image.open(image_path)
@@ -79,6 +81,7 @@ while True:
             points = []
             image, image_path, pointer = get_new_image(pointer)
             points = predict(image_path)
+            print(points)
 
 
     # Blit the image onto the screen
