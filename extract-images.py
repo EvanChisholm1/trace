@@ -19,7 +19,7 @@ def extract_frames(video_path, output_path):
     print('Extracted frames from video: {}'.format(video_path))
 
 if __name__ == "__main__":
-    video_path = "./ski-video.mp4"
-    output_path = "data/raw_images/frame_%04d.jpg"
+    video_path = "./ligety-test.mp4"
+    output_path = "./ligety/frame_%04d.jpg"
     extract_frames(video_path, output_path)
     print("Done!")
